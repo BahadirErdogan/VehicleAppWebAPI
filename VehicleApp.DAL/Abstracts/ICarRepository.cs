@@ -10,7 +10,6 @@ namespace VehicleApp.DAL.Abstracts
 {
     public interface ICarRepository : IRepository<Car>
     {
-        Task<Car?> TurnOffHeadlights(int carId);
-        Task<Car?> TurnOnHeadlights(int carId);
+        Task<Car?> TurnOnOffHeadlights(int carId);
     }
 }

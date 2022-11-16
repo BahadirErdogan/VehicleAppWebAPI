@@ -18,30 +18,28 @@ namespace VehicleApp.DAL.EntityFramework.Concretes
             _context = context;
         }
 
-        public async Task<Car?> TurnOffHeadlights(int carId)
+        public async Task<Car?> TurnOnOffHeadlights(int carId)
         {
             var car = await _context.Cars.FindAsync(carId);
             if(car != null)
             {
-                car.Headlights = false;
-                car.UpdateDate = DateTime.Now;
-                _context.Cars.Update(car);
+                if (car.Headlights)
+                {
+                    car.Headlights = false;
+                    car.UpdateDate = DateTime.Now;
+                    _context.Cars.Update(car);
+                }
+                else
+                {
+                    car.Headlights = true;
+                    car.UpdateDate = DateTime.Now;
+                    _context.Cars.Update(car);
+                }
+                
             }
             
             return await SaveAsync() > 0 ? car : null;
         }
 
-        public async Task<Car?> TurnOnHeadlights(int carId)
-        {
-            var car = await _context.Cars.FindAsync(carId);
-            if (car != null)
-            {
-                car.Headlights = true;
-                car.UpdateDate = DateTime.Now;
-                _context.Cars.Update(car);
-            }
-            
-            return await SaveAsync() > 0 ? car : null;
-        }
     }
 }
