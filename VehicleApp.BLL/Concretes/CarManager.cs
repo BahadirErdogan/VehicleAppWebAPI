@@ -53,26 +53,15 @@ namespace VehicleApp.BLL.Concretes
         }
 
         /// <summary>
-        /// Turn on car headlights
+        /// Turn on car headlights if it is off Turn off car headlights if it is on.
         /// </summary>
-        /// <param name="carId">Identity of the car whose headlights will be turned on</param>
+        /// <param name="carId">Identity of the car whose headlights will be turned on/off</param>
         /// <returns>CarDto</returns>
-        public async Task<CarDto> TurnOnHeadLights(int carId)
+        public async Task<CarDto> TurnOnOffHeadLights(int carId)
         {
-           var car = await _carRepostiory.TurnOnHeadlights(carId);
+           var car = await _carRepostiory.TurnOnOffHeadlights(carId);
            return _mapper.Map<CarDto>(car);
-         
         }
 
-        /// <summary>
-        /// Turn off car headlights
-        /// </summary>
-        /// <param name="carId">Identity of the car whose headlights will be turned off</param>
-        /// <returns>CarDto</returns>
-        public async Task<CarDto> TurnOffHeadLights(int carId)
-        {
-            var car = await _carRepostiory.TurnOnHeadlights(carId);
-            return _mapper.Map<CarDto>(car);
-        }
     }
 }

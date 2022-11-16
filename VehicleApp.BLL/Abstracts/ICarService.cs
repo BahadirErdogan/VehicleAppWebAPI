@@ -10,8 +10,7 @@ namespace VehicleApp.BLL.Abstracts
     public interface ICarService
     {
         Task<List<CarDto>> GetCarByColorAsync(string color);
-        Task<CarDto> TurnOnHeadLights(int carId);
-        Task<CarDto> TurnOffHeadLights(int carId);
+        Task<CarDto> TurnOnOffHeadLights(int carId);
         Task<bool> DeleteCarByCarId(int carId);
     }
 }

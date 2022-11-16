@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\VehicleApp.BLL\VehicleApp.BLL.csproj" />
     <ProjectReference Include="..\VehicleApp.DAL\VehicleApp.DAL.csproj" />
   </ItemGroup>
 
