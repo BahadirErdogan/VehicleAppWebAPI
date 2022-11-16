@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\VehicleApp.Core\VehicleApp.Core.csproj" />
+    <ProjectReference Include="..\VehicleApp.DAL\VehicleApp.DAL.csproj" />
     <ProjectReference Include="..\VehicleApp.Dtos\VehicleApp.Dtos.csproj" />
   </ItemGroup>
 

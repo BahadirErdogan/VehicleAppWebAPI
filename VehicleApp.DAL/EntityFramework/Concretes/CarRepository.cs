@@ -24,6 +24,7 @@ namespace VehicleApp.DAL.EntityFramework.Concretes
             if(car != null)
             {
                 car.Headlights = false;
+                car.UpdateDate = DateTime.Now;
                 _context.Cars.Update(car);
             }
             
@@ -36,6 +37,7 @@ namespace VehicleApp.DAL.EntityFramework.Concretes
             if (car != null)
             {
                 car.Headlights = true;
+                car.UpdateDate = DateTime.Now;
                 _context.Cars.Update(car);
             }
             

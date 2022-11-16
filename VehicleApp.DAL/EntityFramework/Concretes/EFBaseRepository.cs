@@ -37,7 +37,12 @@ namespace VehicleApp.DAL.EntityFramework.Concretes
 
         public async Task<List<T>> GetByColorAsync(string color)
         {
-            return await _dbSet.Where(x => x.Color == color).ToListAsync();
+            return await _dbSet.Where(x => x.Color.ToLower() == color.ToLower()).ToListAsync();
+        }
+
+        public async Task<T?> GetByIdAsync(int id)
+        {
+            return await _dbSet.FindAsync(id).AsTask();
         }
 
         public async Task<T?> UpdateAsync(T entity)
@@ -50,6 +55,6 @@ namespace VehicleApp.DAL.EntityFramework.Concretes
         {
             return _context.SaveChangesAsync();
         }
-
+       
     }
 }
