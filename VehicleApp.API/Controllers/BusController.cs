@@ -25,7 +25,7 @@ namespace VehicleApp.API.Controllers
         public async Task<IActionResult> GetBusByColor(string color)
         {
             List<BusDto> busses = await _busService.GetBusByColorAsync(color);
-            if (busses == null) return NotFound();
+            if (busses.Count < 1) return NotFound(new { message = "Color not found. Try Red, White, Black or Blue." });
             else return Ok(busses);
         }
     }

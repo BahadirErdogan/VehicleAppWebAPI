@@ -37,7 +37,7 @@ namespace VehicleApp.DAL.EntityFramework.Concretes
 
         public async Task<List<T>> GetByColorAsync(string color)
         {
-            return await _dbSet.Where(x => x.Color.ToLower() == color.ToLower()).ToListAsync();
+            return await _dbSet.Where(x => x.Color == color).ToListAsync();
         }
 
         public async Task<T?> GetByIdAsync(int id)

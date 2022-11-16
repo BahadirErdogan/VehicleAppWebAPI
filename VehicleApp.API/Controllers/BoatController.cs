@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using VehicleApp.BLL.Abstracts;
 using VehicleApp.Dtos.Boats;
 using VehicleApp.Dtos.Busses;
@@ -25,7 +26,7 @@ namespace VehicleApp.API.Controllers
         public async Task<IActionResult> GetBoatByColor(string color)
         {
             List<BoatDto> boats = await _boatService.GetBoatByColorAsync(color);
-            if (boats == null) return NotFound();
+            if (boats.Count<1) return NotFound(new { message = "Color not found. Try Red, White, Black or Blue." });
             else return Ok(boats);
         }
     }

@@ -25,7 +25,7 @@ namespace VehicleApp.API.Controllers
         public async Task<IActionResult> GetCarByColor(string color)
         {
             List<CarDto> cars = await _carService.GetCarByColorAsync(color);
-            if (cars == null) return NotFound();
+            if (cars.Count < 1) return NotFound(new { message = "Color not found. Try Red, White, Black or Blue." });
             else return Ok(cars);
         }
 
@@ -51,9 +51,9 @@ namespace VehicleApp.API.Controllers
             if(result!= null)
             {
                 if(result.Headlights)
-                    return Ok(new { message = "Car headlights on." });
+                    return Ok(new { message = "Headlights on." });
                 else
-                    return Ok(new { message = "Car headlights off." });
+                    return Ok(new { message = "Headlights off." });
             }
             else
                 return BadRequest(new { message = "Something went wrong. Please check ID and try again." });
