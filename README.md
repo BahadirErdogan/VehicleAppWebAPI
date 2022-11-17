@@ -39,8 +39,8 @@ To get a local copy up and running follow these simple steps.
 #### Installation
 1. Clone the repo
 ```git clone https://github.com/BahadirErdogan/VehicleAppWebAPI.git```
-2. Configure appsettings.json in WebAPI.
-3. Run Update-Database command with Package Manager Console in WebAPI to create tables and seed datas in sql server.
+2. Configure appsettings.json in VehicleApp.API.
+3. Run Update-Database command with Package Manager Console in VehicleApp.DAL to create tables and seed datas in sql server.
 
 ## ⚖️ Licence
 See ```LICENCE``` for more information
